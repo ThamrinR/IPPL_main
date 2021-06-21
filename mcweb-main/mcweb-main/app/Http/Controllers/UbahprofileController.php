@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use App\Models\psikolog;
 class UbahprofileController extends Controller
 {
     public function index()
     {
         $user = User::find(auth()->id());
-        return view('profile', compact('user'));
+        $campuran = psikolog::get();
+        return view('profile', compact('user','campuran'));
     }
 
     /**
@@ -67,8 +68,8 @@ class UbahprofileController extends Controller
     public function edit($id)
     {
         $editpro = User::find($id);
-
-        return view('editpro', compact('editpro'));
+        $campuran = psikolog::get();
+        return view('editpro', compact('editpro', 'campuran'));
     }
 
     /**

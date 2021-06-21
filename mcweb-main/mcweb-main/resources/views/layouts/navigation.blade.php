@@ -21,11 +21,11 @@
                     class="navbar-item is-mediumed px-5">
                     Home
                 </a>
-                <a 
+                {{-- <a 
                     href="{{route('psikolog.index')}}"
                     class="navbar-item is-mediumed px-5">
                     Quiz
-                </a>
+                </a> --}}
                 <a 
                     href="{{route('psikolog.index')}}"
                     class="navbar-item is-mediumed px-5">

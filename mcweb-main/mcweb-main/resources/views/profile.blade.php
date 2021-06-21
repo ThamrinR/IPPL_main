@@ -85,9 +85,7 @@
 							<p class="has-background-primary has-text-light">Diterima</p>
 						</div>
 						@endif
-			
-
-
+		
 					</div>
 				</div>
 				@endforeach	
