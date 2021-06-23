@@ -16,7 +16,7 @@ class PsikologAdminController extends Controller
         $ID=Auth::user()->id;
         $USER=User::where('id','=',$ID)->first();
         $PSIKOLOG=psikolog::paginate(5);
-        return view ('layouts/APsikolog',compact('USER'),['PSIKOLOG'=>$PSIKOLOG]);
+        return view ('admin.psikolog.psikolog',compact('USER'),['PSIKOLOG'=>$PSIKOLOG]);
     }
 
     public function detail($id){
@@ -24,13 +24,13 @@ class PsikologAdminController extends Controller
         $USER=User::where('id','=',$ID)->first();
         $PSIKOLOG=psikolog::where('id','=',$id)->first();
         $Jadwal=Jadwal::where('psikolog_id','=',$id)->get();
-        return view ('layouts/ADetailP',compact('USER','PSIKOLOG'),['Jadwal'=>$Jadwal]);
+        return view ('admin.psikolog.psikolog-view',compact('USER','PSIKOLOG'),['Jadwal'=>$Jadwal]);
     }
 
     public function create(){
         $ID=Auth::user()->id;
         $USER=User::where('id','=',$ID)->first();
-        return view ('layouts/psikologadd',compact('USER'));
+        return view ('admin.psikolog.psikolog-form-create',compact('USER'));
     }
 
     public function store(){
@@ -53,7 +53,7 @@ class PsikologAdminController extends Controller
             'foto_psikolog' => $fileName
         ]);
         echo Request()->username;
-        return redirect()->route('layouts/APsikolog')->with('pesan', 'Data psikolog Berhasil Ditambahkan');
+        return redirect()->route('admin.psikolog.psikolog')->with('pesan', 'Data psikolog Berhasil Ditambahkan');
         }
 
         public function edit($id){
@@ -61,7 +61,7 @@ class PsikologAdminController extends Controller
             $USER=User::where('id','=',$ID)->first();
             $PSIKOLOG=psikolog::where('id','=',$id)->first();
             $KATEGORI=Kategori::all();
-            return view('layouts/editpsikolog',compact('USER','PSIKOLOG'),['KATEGORI'=>$KATEGORI]);
+            return view('admin.psikolog.psikolog-form-edit',compact('USER','PSIKOLOG'),['KATEGORI'=>$KATEGORI]);
         }
 
         public function update($id){
@@ -92,14 +92,14 @@ class PsikologAdminController extends Controller
                 'foto_psikolog' => $fileName
             ]);
             echo Request()->username;
-            return redirect()->route('layouts/APsikolog');
+            return redirect()->route('admin.psikolog.psikolog');
         }
 
         public function delete($id){
             $ID=Auth::user()->id;
             $USER=User::where('id','=',$ID)->first();
             $psikolog=psikolog::where('id','=',$id)->delete();
-            return redirect()->route('layouts/APsikolog')
+            return redirect()->route('admin.psikolog.psikolog')
                              ->with('success', 'psikolog berhasil dihapus');
         }
     }

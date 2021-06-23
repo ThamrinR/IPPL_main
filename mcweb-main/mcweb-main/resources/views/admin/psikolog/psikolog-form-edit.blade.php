@@ -1,7 +1,8 @@
-<?php $title="Psikolog"; ?>
-@include('layouts.adminheader')
+@extends('admin.dashboard.master')
 
-    <section class="content">
+@section('title', 'Dashboard')
+
+@section('content')   <section class="content">
       <div class="container-fluid">
             <!-- left column -->
               <!-- general form elements -->
@@ -93,5 +94,4 @@
               <!-- /.card -->
       </div><!-- /.container-fluid -->
     </section>
-
-@include('layouts.adminfooter')
+@endsection

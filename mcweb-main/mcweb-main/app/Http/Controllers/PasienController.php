@@ -10,7 +10,7 @@ class PasienController extends Controller
     {
         
         $pasienad = Pasien::orderBy('id','asc')->paginate(5);
-        return view('layouts.pasien',compact('pasienad'))
+        return view('admin.pasien.pasien',compact('pasienad'))
                 ->with('i',(request()->input('page',1) -1)*5);
         
         
@@ -23,7 +23,7 @@ class PasienController extends Controller
      */
     public function create()
     {
-        return view('layouts.pasienadd');
+        return view('admin.pasien.pasienadd');
     }
 
     /**
@@ -72,7 +72,7 @@ class PasienController extends Controller
     public function show($id)
     {
         $pasienad = Pasien::find($id);
-        return view('layouts.pasiendetail', compact('pasienad'));
+        return view('admin.pasien.pasiendetail', compact('pasienad'));
     }
 
     /**
@@ -85,7 +85,7 @@ class PasienController extends Controller
     {
         $pasienad = Pasien::find($id);
 
-        return view('layouts.pasienedit', compact('pasienad'));
+        return view('admin.pasien.pasienedit', compact('pasienad'));
     }
 
     /**

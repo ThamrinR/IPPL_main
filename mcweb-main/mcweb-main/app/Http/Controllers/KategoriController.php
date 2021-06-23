@@ -15,13 +15,13 @@ class KategoriController extends Controller
         $ID=Auth::user()->id;
         $USER=User::where('id','=',$ID)->first();
         $KATEGORI=kategori::paginate(5);
-        return view ('layouts/kategori',compact('USER'),['KATEGORI'=>$KATEGORI]);
+        return view ('admin.kategori.kategori',compact('USER'),['KATEGORI'=>$KATEGORI]);
     }
 
     public function create(){
         $ID=Auth::user()->id;
         $USER=User::where('id','=',$ID)->first();
-        return view ('layouts/kategoripsikolog',compact('USER'));
+        return view ('admin.kategori.kategoripsikolog',compact('USER'));
     }
 
     public function store(){
@@ -32,7 +32,7 @@ class KategoriController extends Controller
             // 'id' => $id,
         ]);
     
-    return redirect()->route('layouts/kategori');
+    return redirect('/kategori')->with('success','kategori berhasil ditambahkan');
     }
     
     public function delete($id){
@@ -40,7 +40,7 @@ class KategoriController extends Controller
         $USER=User::where('id','=',$ID)->first();
         $Kategori=kategori::where('id','=',$id)->delete();
 
-        return redirect()->route('layouts/kategori')
+        return redirect('/kategori')
                          ->with('success', 'Kategori berhasil dihapus');
     }
 }

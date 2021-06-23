@@ -1,6 +1,8 @@
-<?php $title="Detail Janji"; ?>
-@include('layouts.adminheader')
+@extends('admin.dashboard.master')
 
+@section('title', 'Dashboard')
+
+@section('content')
     <section class="content">
       <div class="container-fluid">
             <div class="card card-primary">
@@ -78,4 +80,4 @@
               </div>
       </div>
     </section>
-@include('layouts.adminfooter')
+@endsection

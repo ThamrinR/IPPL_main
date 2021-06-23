@@ -15,7 +15,7 @@ class JadwalController extends Controller
         $ID=Auth::user()->id;
         $USER=User::where('id','=',$ID)->first();
         $PSIKOLOG=psikolog::where('id','=',$id)->first();
-        return view ('layouts/psikologjadwaladd',compact('USER','PSIKOLOG'));
+        return view ('admin.psikolog.psikologjadwaladd',compact('USER','PSIKOLOG'));
     }
 
     public function store($id){

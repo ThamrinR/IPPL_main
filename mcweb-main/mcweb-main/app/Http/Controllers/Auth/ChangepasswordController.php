@@ -39,30 +39,31 @@ class ChangepasswordController extends Controller
 
     }
 
-    public function change_password(){ 
-        return view('editpasw');
+    public function edit($id)
+    {
+        $editpasw = User::find($id);
+
+        return view('editpasw', compact('editpasw'));
     }
 
+    public function update(Request $request,$id){
+        // $request->validate([
+        // 'old_password'=>'required|min:8',
+        // 'password' => 'required|string|confirmed|min:8',
+        // ]);
+        $User = User::find($id);
+        $User->password = bcrypt($request->get('password'));
+        $User->save();
+        // $current_user=auth()->user();
+        //   $user=$current_user;
+        // if(Hash::check($request->old_password,$current_user->password)){
+        //   User::find(auth()->id())-> update(['password' => bcrypt($request->password)]);
+        //     // $current_user->password=bcrypt($request->password);
+        //     // $current_user -> save();
+        //   // dd($current_user, $user);
+        return redirect()->route('profile')->with('success','Password successfully updated.');
 
-    public function update_password(Request $request){
-        $request->validate([
-        'old_password'=>'required|min:8',
-        'password' => 'required|string|confirmed|min:8',
-        ]);
-
-        $current_user=auth()->user();
-          $user=$current_user;
-        if(Hash::check($request->old_password,$current_user->password)){
-          User::find(auth()->id())-> update(['password' => bcrypt($request->password)]);
-            // $current_user->password=bcrypt($request->password);
-            // $current_user -> save();
-          // dd($current_user, $user);
-            return redirect()->back()->with('success','Password successfully updated.');
-
-        }else{
-            return redirect()->back()->with('error','Old password does not matched.');
-        }
-
+  
 
 
     }

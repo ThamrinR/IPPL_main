@@ -11,26 +11,27 @@
           <h4 class="is-size-4 is-uppercase has-text-dark title">Ubah Kata Sandi</h3>
         </div>
         <div class="column is-8">
-          <form action="" method="POST">
+          <form action="{{route('gantipw.update',$editpasw->id)}}" method="post">
             @csrf
+            @method('PUT')
             <div class="columns is-centered">
               <div class="column is-6">
                 <div class="field">
                     <label>Kata Sandi Lama</label>
                       <div class="control is-expanded">
-                        <input class="input" type="password" placeholder="Enter password" required name ='old_password'>
+                        <input class="input" type="password" placeholder="Enter password" required name ='old_password' required>
                       </div>
                   </div>
                   <div class="field">
                     <label>Kata Sandi Baru</label>
                       <div class="control is-expanded">
-                        <input class="input" type="password" placeholder="Confirm" required name ='password'>
+                        <input class="input" type="password" placeholder="Confirm" required name ='password' required>
                       </div>
                   </div>
                   <div class="field">
                     <label>Ulangi Kata Sandi Baru</label>
                       <div class="control is-expanded">
-                        <input class="input" type="password" placeholder="Confirm" required name="password_confirmation">
+                        <input class="input" type="password" placeholder="Confirm" required name="password_confirmation" required>
                       </div>
                   </div>
                 <div class="field">

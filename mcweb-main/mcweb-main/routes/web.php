@@ -15,7 +15,8 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PsikologAdminController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KategoriController;
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,9 +53,9 @@ Route::get('/editpro', function () {
 // });
 
 
-Route::get('/article', function () {
-    return view('article');
-});
+// Route::get('/article', function () {
+//     return view('article');
+// });
 
 #psikologadmin
 Route::get('/psikolog', [PsikologAdminController::class, 'index'])->middleware(['auth'])->name('psikolog');
@@ -87,22 +88,23 @@ Route::get('/pembayaran', function () {
     return view('layouts/pembayaran');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
 
-Route::get('/profile', [ProfileController::class, 'view']);
+Route::get('/profile', [ProfileController::class, 'view'])->middleware(['auth'])->name('profile');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/home', function () {
+//     return view('welcome');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 Route::get('/editpasw', [ChangepasswordController::class, 'change_password']);
+// Route::post('/editpasw/{id}', [ChangepasswordController::class, 'update_password']);
+Route::resource('gantipw', ChangepasswordController::class);
 Route::post('/tumkm_update/{id}',[TumkmController::class, 'update'])->name('tumkm_update');
 Route::resource('editpro', UbahprofileController::class);
-Route::resource('/psikolog', PsikologController::class);
 // Route::resource('buatjanji', JanjiController::class);
 Route::resource('buatjanji', JanjiController::class);
 Route::resource('adminjanji', AdminjanjiController::class);
@@ -111,4 +113,6 @@ Route::resource('articledetail', ArticlehomeController::class);
 Route::resource('articlead', ArticleController::class);
 Route::resource('pasienad', PasienController::class);
 
-
+//login
+Route::get('/home', [DashboardController::class, 'index'])->middleware(['auth'])->name('admindashboard');
+Route::resource('psikologi', PsikologController::class);

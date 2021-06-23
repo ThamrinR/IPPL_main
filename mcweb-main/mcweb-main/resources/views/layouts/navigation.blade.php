@@ -27,7 +27,7 @@
                     Quiz
                 </a> --}}
                 <a 
-                    href="{{route('psikolog.index')}}"
+                    href="{{route('psikologi.index')}}"
                     class="navbar-item is-mediumed px-5">
                     Psychologist
                 </a>

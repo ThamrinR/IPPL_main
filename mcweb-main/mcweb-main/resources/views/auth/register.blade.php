@@ -47,7 +47,12 @@
 					</div>
 					<div class="field mt-4">
 					  <div class="control">
-					    <button class="button is-dark is-fullwidth" type="submit">Daftar</button>
+						@if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+							<button class="button is-dark is-fullwidth" type="submit">Daftar</button>
+                        </div>
+                    @endif
 					  </div>
 					</div>
 				</form>

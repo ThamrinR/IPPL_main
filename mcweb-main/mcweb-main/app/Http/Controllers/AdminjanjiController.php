@@ -28,7 +28,7 @@ class AdminjanjiController extends Controller
             ->join('users','users.id','=','booking.user_id')->get();
             
         // dd($adminjanji);
-        return view('layouts.adminjanji',compact('adminjanji'))
+        return view('admin.jadwaljanji.adminjanji',compact('adminjanji'))
                 ->with('i',(request()->input('page',1) -1)*5);
 
     }

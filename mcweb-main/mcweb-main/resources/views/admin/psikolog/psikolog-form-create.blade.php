@@ -1,6 +1,8 @@
-<?php $title="Kategori"; ?>
-@include('layouts.adminheader')
+@extends('admin.dashboard.master')
 
+@section('title', 'Dashboard')
+
+@section('content')
     <section class="content">
       <div class="container-fluid">
         <a href="/kategoripsikologadd">
@@ -42,6 +44,4 @@
           </div>
       </div><!-- /.container-fluid -->
     </section>
-
-@include('layouts.adminfooter')
-
+@endsection

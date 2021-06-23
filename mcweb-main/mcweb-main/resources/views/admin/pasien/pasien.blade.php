@@ -1,6 +1,8 @@
-<?php $title="Pasien"; ?>
-@include('layouts.adminheader')
+@extends('admin.dashboard.master')
 
+@section('title', 'Dashboard')
+
+@section('content')
 <section class="content">
   <div class="container-fluid">
     <a href="{{route('pasienad.create')}}">
@@ -53,5 +55,4 @@
       </div>
   </div>
 </section>
-
-@include('layouts.adminfooter')
+@endsection

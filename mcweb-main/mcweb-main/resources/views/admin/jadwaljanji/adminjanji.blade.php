@@ -1,6 +1,8 @@
-<?php $title="Jadwal Janji"; ?>
-@include('layouts.adminheader')
+@extends('admin.dashboard.master')
 
+@section('title', 'Dashboard')
+
+@section('content')
    <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -58,10 +60,6 @@
                       </form>
                       </tr>
                       @endforeach
-                      
-
-
-
                     </tbody>
                   </table>
                 </div>
@@ -72,4 +70,4 @@
           </div>
       </div><!-- /.container-fluid -->
     </section>
-@include('layouts.adminfooter')
+@endsection

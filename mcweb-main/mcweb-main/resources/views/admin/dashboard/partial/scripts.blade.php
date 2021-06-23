@@ -1,21 +1,3 @@
-</div>
-<!-- /.content-wrapper -->
-<footer class="main-footer">
-  <strong>Copyright &copy; 2014-2021 <a href="{{asset('DashboardMC')}}https://adminlte.io">AdminLTE.io</a>.</strong>
-  All rights reserved.
-  <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 3.1.0
-  </div>
-</footer>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-  <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="{{asset('DashboardMC')}}/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -50,5 +32,3 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('DashboardMC')}}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('DashboardMC')}}/dist/js/pages/dashboard.js"></script>
-</body>
-</html>

@@ -23,9 +23,11 @@ class User extends Authenticatable
         'tempat_lahir',
         'jenis_kelamin',
         'foto_profile',
+        'password',
         'status',
         'email',
         'remember_token',
+        'role'
         
     ];
 

@@ -17,7 +17,7 @@ class ArticleController extends Controller
     {
         
         $articlead = Article::orderBy('id','asc')->paginate(5);
-        return view('layouts.adminarticle',compact('articlead'))
+        return view('admin.article.adminarticle',compact('articlead'))
                 ->with('i',(request()->input('page',1) -1)*5);
         
         
@@ -30,7 +30,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('layouts.articleadd');
+        return view('admin.article.articleadd');
     }
 
     /**
@@ -73,7 +73,7 @@ class ArticleController extends Controller
     public function show($id)
     {
         $articlead = article::find($id);
-        return view('layouts.articledetail', compact('articlead'));
+        return view('admin.article.articledetail', compact('articlead'));
     }
 
     /**
@@ -86,7 +86,7 @@ class ArticleController extends Controller
     {
         $article = article::find($id);
 
-        return view('layouts.articleedit', compact('article'));
+        return view('admin.article.articleedit', compact('article'));
     }
 
     /**
@@ -99,19 +99,24 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
 
+
+
+        $article = article::find($id);
+        $article->isi = $request->get('isi');
+        $article->judul = $request->get('judul');
+
+
         if (isset($request->gambar)){
             $extention = $request->gambar->extension();
             $image_name = time().'.'.$extention;
-            $request->gambar->move(public_path('img\avatar'),$image_name);
+            $request->gambar->move(public_path('img\article'),$image_name);
+            $article->gambar = $image_name;
             
         }else{
             $image_name = null;
         }
 
-        $article = article::find($id);
-        $article->isi = $request->get('isi');
-        $article->judul = $request->get('judul');
-        $article->gambar = $image_name;
+       
         $article->save();
 
         return redirect()->route('articlead.index')

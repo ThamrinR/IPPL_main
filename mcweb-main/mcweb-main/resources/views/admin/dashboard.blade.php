@@ -1,8 +1,11 @@
-<?php $title="Dashboard"; ?>
-@include('layouts.adminheader')
+@extends('admin.dashboard.master')
 
-    <!-- Main content -->
-    <section class="content">
+@section('title', 'Dashboard')
+
+@section('content')
+<!-- Main content -->
+<!-- /.content -->
+     <section class="content">
       <div class="container-fluid">
         
          <div class="row">
@@ -10,7 +13,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$psikolog->count()}}</h3>
 
                 <p>Psikolog</p>
               </div>
@@ -22,7 +25,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{$pasien->count()}}</h3>
 
                 <p>Pasien</p>
               </div>
@@ -34,7 +37,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{$jadwal->count()}}</h3>
 
                 <p>Jadwal Janji</p>
               </div>
@@ -46,7 +49,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{$article->count()}}</h3>
 
                 <p>Artikel</p>
               </div>
@@ -58,6 +61,5 @@
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-
-@include('layouts.adminfooter')
+    
+@endsection

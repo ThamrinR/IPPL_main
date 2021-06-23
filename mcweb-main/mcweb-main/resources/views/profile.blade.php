@@ -54,7 +54,7 @@
 					<br>
 					<div class="has-text-left">
 						<a href="{{route('editpro.edit',Auth::user()->id)}}" class="button">Ubah Profile</a>
-						<a href="editpasw" class="button">Ubah Kata Sandi</a>
+						<a href="{{route('gantipw.edit',Auth::user()->id)}}" class="button">Ubah Kata Sandi</a>
 					</div>
 				</div>
 			</div>
