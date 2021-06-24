@@ -23,7 +23,7 @@
             </div>
         </div>
         <p class="is-size-5 ml-3">Jadwal Praktik </p>
-        <div class="columns">
+        {{-- <div class="columns">
             <div class="column">
                 <p class="is-size-6 has-text-grey mt-2 ml-3">Jumat, 16 April 2021 : </p>
                 <li class="is-size-6 mt-1 ml-5">10.00-10.30</li>
@@ -53,7 +53,7 @@
                 <li class="is-size-6 mt-1 ml-5">14.30-15.00</li>
                 <li class="is-size-6 mt-1 ml-5">16.00-16.30</li>
             </div>
-          </div>
+          </div> --}}
         
 
 

@@ -21,7 +21,9 @@ class UserMiddleware
             silahkan modifikasi pada bagian ini
             apa yang ingin kamu lakukan jika rolenya tidak sesuai
             */
-            return redirect()->to('logout');
+            // return response('Unauthorized.', 401);
+            // return redirect()->to;
+            abort(401);
         }
         return $next($request);
     }

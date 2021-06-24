@@ -32,24 +32,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user', function () {
-    return view('layouts/user');
-});
-
-Route::get('/adminjanji', function () {
-    return view('layouts/adminjanji');
-});
-
-Route::get('/detailjanji', function () {
-    return view('layouts/detailjanji');
-});
-
-Route::get('/editpro', function () {
-    return view('editpro');
-});
-
+// Route::get('/login', function () {
+    //     return view('layouts/login');
+    // });
+    
+    Route::get('/adminjanji', function () {
+        return view('admin.jadwaljanji.adminjanji');
+    });
+    
+    Route::get('/detailjanji', function () {
+        return view('admin.jadwaljanji.detailjanji');
+    });
+    
+    Route::get('/editpro', function () {
+        return view('editpro');
+    });
+    
 // Route::get('/adminarticle', function () {
-    // return view('layouts.adminarticle');
+// return view('layouts.adminarticle');
 // });
 
 
@@ -66,9 +66,9 @@ Route::get('/psikologedit/{id}', [PsikologAdminController::class, 'edit'])->midd
 Route::post('/updatepsikolog/{id}', [PsikologAdminController::class, 'update'])->middleware(['auth'])->name('updatepsikolog');
 Route::get('/psikologdelete/{id}', [PsikologAdminController::class, 'delete'])->middleware(['auth'])->name('psikologdelete');
 // Route::get('/psikolog', function () {
-//     return view('layouts/psikolog');
-// });
-
+    //     return view('layouts/psikolog');
+    // });
+    
 #jadwal
 Route::get('/psikologjadwaladd/{id}', [JadwalController::class, 'create'])->middleware(['auth'])->name('psikologjadwaladd');
 Route::post('/jadwaladd/{id}', [JadwalController::class, 'store'])->middleware(['auth'])->name('jadwaladd');
@@ -81,11 +81,11 @@ Route::post('/kategoriadd', [KategoriController::class, 'store'])->middleware(['
 Route::get('/kategoridelete/{id}', [KategoriController::class, 'delete'])->middleware(['auth'])->name('kategoridelete');
 
 Route::get('/buatjanji', function () {
-    return view('layouts/buatjanji');
+return view('layouts/buatjanji');
 });
 
 Route::get('/pembayaran', function () {
-    return view('layouts/pembayaran');
+return view('layouts/pembayaran');
 });
 
 // Route::get('/profile', function () {
@@ -95,9 +95,9 @@ Route::get('/pembayaran', function () {
 Route::get('/profile', [ProfileController::class, 'view'])->middleware(['auth'])->name('profile');
 
 // Route::get('/home', function () {
-//     return view('welcome');
-// })->middleware(['auth'])->name('dashboard');
-
+    //     return view('welcome');
+    // })->middleware(['auth'])->name('dashboard');
+    
 require __DIR__.'/auth.php';
 
 Route::get('/editpasw', [ChangepasswordController::class, 'change_password']);
@@ -107,7 +107,6 @@ Route::post('/tumkm_update/{id}',[TumkmController::class, 'update'])->name('tumk
 Route::resource('editpro', UbahprofileController::class);
 // Route::resource('buatjanji', JanjiController::class);
 Route::resource('buatjanji', JanjiController::class);
-Route::resource('adminjanji', AdminjanjiController::class);
 Route::resource('article', ArticlehomeController::class);
 Route::resource('articledetail', ArticlehomeController::class);
 Route::resource('articlead', ArticleController::class);
@@ -116,3 +115,19 @@ Route::resource('pasienad', PasienController::class);
 //login
 Route::get('/home', [DashboardController::class, 'index'])->middleware(['auth'])->name('admindashboard');
 Route::resource('psikologi', PsikologController::class);
+
+// Auth::routes();
+
+
+// Route::middleware(['auth'])->group(function () {
+
+// Route::middleware(['admin:admin'])->group(function () {
+Route::get('admin', [AdminController::class, 'index']);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// });
+
+ Route::resource('adminjanji', AdminjanjiController::class);
+// Route::middleware(['user'])->group(function () {
+//     Route::get('user', [UserController::class, 'index']);
+// });
+// });

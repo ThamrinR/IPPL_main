@@ -29,7 +29,7 @@
 
                 <p>Pasien</p>
               </div>
-              <a href="pasien.php" class="small-box-footer">Lihat Data</a>
+              <a href="/pasienad" class="small-box-footer">Lihat Data</a>
             </div>
           </div>
           <!-- ./col -->
@@ -41,7 +41,7 @@
 
                 <p>Jadwal Janji</p>
               </div>
-              <a href="janji.php" class="small-box-footer">Lihat Data</a>
+              <a href="/adminjanji" class="small-box-footer">Lihat Data</a>
             </div>
           </div>
           <!-- ./col -->
@@ -53,7 +53,7 @@
 
                 <p>Artikel</p>
               </div>
-              <a href="artikel.php" class="small-box-footer">Lihat Data</a>
+              <a href="/articlead" class="small-box-footer">Lihat Data</a>
             </div>
           </div>
           <!-- ./col -->

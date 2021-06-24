@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\psikolog;
 use Illuminate\Http\Request;
 
-
 class PsikologController extends Controller
 {
     /**
@@ -14,6 +13,7 @@ class PsikologController extends Controller
      */
     public function index()
     {
+        // $user = User::get('foto_profile');
         $psikolog = psikolog::orderBy('id','asc')->paginate(5);
         return view('layouts.psikolog', compact('psikolog'));
     }

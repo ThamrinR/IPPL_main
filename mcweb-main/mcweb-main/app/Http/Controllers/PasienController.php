@@ -9,9 +9,9 @@ class PasienController extends Controller
     public function index()
     {
         
-        $pasienad = Pasien::orderBy('id','asc')->paginate(5);
+        $pasienad = Pasien::orderBy('id','asc')->paginate(100);
         return view('admin.pasien.pasien',compact('pasienad'))
-                ->with('i',(request()->input('page',1) -1)*5);
+                ->with('i',(request()->input('page',1) -1)*100);
         
         
    }

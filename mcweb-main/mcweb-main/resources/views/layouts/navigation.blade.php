@@ -37,7 +37,7 @@
                     Article
                 </a>
                     <div class="navbar-item">
-                        @if (auth()->id() !== null)
+                        @if (auth()->id() != null)
                             <div class="buttons">
                                 <a href="profile" class="button is-dark is-mediumed is-inverted px-5">{{auth()->user()->email}}</a>
                                 <a href="register" class="button is-danger px-5">

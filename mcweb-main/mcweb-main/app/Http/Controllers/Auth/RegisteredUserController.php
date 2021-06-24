@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
         ]);
         
         Auth::login($user = User::create([
+            'role' => 'user',
             'name' => $request->name,
             'email' => $request->email,
             'no_telp' => $request->no_telp,

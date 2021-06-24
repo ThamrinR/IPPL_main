@@ -2,16 +2,16 @@
 	<section id="mc-buatjanji" class="section">
 		<div class="card container">
           <div>
-            <img src="{{asset('img')}}/Header-3-2.png" alt="Foto Profil" class="avatar responsive">
+            <img src="{{asset('/img/avatar/'.Auth::User()->foto_profile)}}" alt="Foto Profil" class="avatar responsive">
           </div>
           <div>
             <h2>{{Auth::User()->name}}</h2>
             <h4 style="color:springgreen;">Online</h4>
             <h4>{{Auth::User()->tgl_lahir}}</h4>
           </div>
-          <a class="navbar-end button is-rounded" href="#">
+          {{-- <a class="navbar-end button is-rounded" href="#">
             Lihat Profil
-          </a>
+          </a> --}}
         </div>
         
       <nav class="panel container">
@@ -20,8 +20,8 @@
             </p>
             <p class="panel-tabs">
               <a class="is-active">Semua</a>
-              <a>Tersedia</a>
-              <a>Top Rated</a>
+              {{-- <a>Tersedia</a>
+              <a>Top Rated</a> --}}
               <a class="control has-icons-left navbar-end">
                 <input class="input" type="text" placeholder="Search">
                 <span class="icon is-left">

@@ -104,7 +104,7 @@ class AdminjanjiController extends Controller
             ->join('psikolog','booking.psikolog_id','=','psikolog.id')
             ->join('users','users.id','=','booking.user_id')->find($id);
 // dd($adminjanji);
-        return view('layouts.detailjanji', compact('adminjanji'));
+        return view('admin.jadwaljanji.detailjanji', compact('adminjanji'));
     }
 
     /**
