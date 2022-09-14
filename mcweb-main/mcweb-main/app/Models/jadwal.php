@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class jadwal extends Model
 {
     use HasFactory;
-    public $table = 'jadwals'; 
+    public $table = 'jadwal'; 
     protected $fillable = [
         'id',
         'hari',
